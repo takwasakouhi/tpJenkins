@@ -2,22 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Git Checkout') {
+        stage('Git') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/Achreef01/Jenkins-Workshop.git'
+                url: 'https://github.com/takwasakouhi/tpJenkins.git'
             }
         }
 
-        stage('Maven Clean') {
+        stage('Build') {
             steps {
-                sh 'mvn clean'
-            }
-        }
-
-        stage('Maven Compile') {
-            steps {
-                sh 'mvn compile'
+                sh 'mvn clean install'
             }
         }
     }
